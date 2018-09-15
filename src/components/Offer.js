@@ -9,10 +9,18 @@ class Offer extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
-  onChange(value) {
+  onChange(qty, price) {
     const { dispatch } = this.props;
 
-    dispatch({ type: 'CART', payload: value });
+    dispatch({
+      type: 'CART',
+      payload: {
+        [String(this.props.name).toLowerCase()]: {
+          qty: Number(qty),
+          price,
+        },
+      },
+    });
   }
 
   render() {

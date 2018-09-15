@@ -1,9 +1,9 @@
-const initialState = {};
+const initialState = { tickets: {} };
 
 const Cart = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'CART':
-      return { cart: payload };
+      return { ...state, tickets: { ...state.tickets, ...payload } };
 
     default:
       return state;
