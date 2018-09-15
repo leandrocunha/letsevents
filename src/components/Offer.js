@@ -1,14 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Batch from './Batch';
 
-const Offers = props => (
-  <div>
-    <h3>{props.name}</h3>
-    <p>{props.description}</p>
-    {props.batches.map(batch => (
-      <Batch key={batch.id} {...batch} />
-    ))}
-  </div>
-);
+class Offer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { available: 1 };
+    this.onChange = this.onChange.bind(this);
+  }
 
-export default Offers;
+  onChange(value, limit, id) {
+    this.setState({ value, limit, id });
+  }
+
+  render() {
+    return (
+      <div>
+        <h3>{this.props.name}</h3>
+        <p>{this.props.description}</p>
+        {this.props.batches.map(batch => (
+          <Batch
+            key={batch.id}
+            onChange={this.onChange}
+            available={batch.number === this.state.available}
+            {...batch}
+          />
+        ))}
+      </div>
+    );
+  }
+}
+
+export default Offer;
