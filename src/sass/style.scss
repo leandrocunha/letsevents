@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
+@import 'normalize/import-now';
+
+// Font Family
+$SourceSansPro: 'SourceSansPro', sans-serif;
+
+//colors
+$black: #000;
+$blue: #0070e0;
+$white: #fff;
+
+//defaults
+$primary: $blue;
+$secondary: rgba($black, 0.5);
+
+// Media Queries
+$desktop: 1024px;
+$tablet: 720px;
+
+body {
+  background-color: rgba($black, 0.1);
+  font-family: $SourceSansPro;
+  font-weight: 400;
+}
