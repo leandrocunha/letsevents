@@ -25,9 +25,9 @@ class Offer extends Component {
 
   render() {
     return (
-      <div>
-        <h3>{this.props.name}</h3>
-        <p>{this.props.description}</p>
+      <div className="Offer">
+        <h3 className="Offer__Name">{this.props.name}</h3>
+        <p className="Offer__Description">{this.props.description}</p>
         {this.props.batches.map(batch => (
           <Batch
             key={batch.id}

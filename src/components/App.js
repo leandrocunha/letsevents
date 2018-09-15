@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import Cart from './Cart';
@@ -48,10 +48,10 @@ const App = () => (
       if (error) return <p>Error :(</p>;
 
       return (
-        <Fragment>
+        <div className="App">
           <Events {...data.event_offer} />
           <Cart />
-        </Fragment>
+        </div>
       );
     }}
   </Query>
