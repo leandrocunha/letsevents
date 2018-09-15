@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Batch from './Batch';
 
 class Offer extends Component {
@@ -9,7 +10,9 @@ class Offer extends Component {
   }
 
   onChange(value) {
-    console.log(value);
+    const { dispatch } = this.props;
+
+    dispatch({ type: 'CART', payload: value });
   }
 
   render() {
@@ -30,4 +33,4 @@ class Offer extends Component {
   }
 }
 
-export default Offer;
+export default connect()(Offer);
