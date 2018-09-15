@@ -5,15 +5,7 @@ const Batch = props => (
     <p>{props.price}</p>
     <select
       disabled={!props.available}
-      onChange={({ target }) =>
-        props.onChange(
-          target.value,
-          props.purchaseable_quantities[
-            props.purchaseable_quantities.length - 1
-          ],
-          props.id
-        )
-      }
+      onChange={({ target }) => props.onChange(target.value)}
     >
       <option>Quantos deseja comprar?</option>
       {props.purchaseable_quantities.map(qty => (

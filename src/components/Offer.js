@@ -8,8 +8,8 @@ class Offer extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
-  onChange(value, limit, id) {
-    this.setState({ value, limit, id });
+  onChange(value) {
+    console.log(value);
   }
 
   render() {
@@ -20,8 +20,8 @@ class Offer extends Component {
         {this.props.batches.map(batch => (
           <Batch
             key={batch.id}
-            onChange={this.onChange}
             available={batch.number === this.state.available}
+            onChange={this.onChange}
             {...batch}
           />
         ))}
