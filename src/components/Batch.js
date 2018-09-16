@@ -6,7 +6,7 @@ const Batch = props => (
     <p>{props.price ? <Currency value={props.price} /> : 'Grátis'}</p>
     <div className="Batch__SelectWrapper">
       <select
-        className="Batch__SelectWrapper__Select"
+        className="Select"
         disabled={!props.available}
         onChange={({ target }) =>
           props.onChange(target.value, props.price)

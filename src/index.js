@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ApolloClient from 'apollo-boost';
-import { createStore } from 'redux';
+import { combineReducers, createStore } from 'redux';
 import { ApolloProvider } from 'react-apollo';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import Cart from './reducers/Cart';
+import Checkout from './reducers/Checkout';
 
 const client = new ApolloClient({
   uri: 'http://dev.lets.events/graphql',
@@ -13,7 +14,10 @@ const client = new ApolloClient({
 
 /** Build store to feed Provider */
 const store = createStore(
-  Cart,
+  combineReducers({
+    Cart,
+    Checkout,
+  }),
   window.__REDUX_DEVTOOLS_EXTENSION__ &&
     window.__REDUX_DEVTOOLS_EXTENSION__()
 );

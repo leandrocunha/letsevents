@@ -2,6 +2,7 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import Cart from './Cart';
+import Checkout from './Checkout';
 import Events from './Events';
 
 const getEventsQuery = gql`
@@ -51,6 +52,7 @@ const App = () => (
         <div className="App">
           <Events {...data.event_offer} />
           <Cart />
+          <Checkout />
         </div>
       );
     }}

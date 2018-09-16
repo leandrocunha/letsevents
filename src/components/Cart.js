@@ -16,23 +16,24 @@ const getTotal = cart => {
   return formatedTotal;
 };
 
-const Cart = ({ tickets }) => {
+const Cart = ({ Cart }) => {
   return (
     <div className="Cart">
       <p className="Cart__Title">Carrinho de compras:</p>
       <ul className="Cart__ItemsList">
-        {Object.keys(tickets).map((ticket, index) => (
+        {Object.keys(Cart.tickets).map((ticket, index) => (
           <li className="Cart__ItemsList__Item" key={index}>
             <span>
               <strong>{ticket}</strong>
               <br />
-              {`${tickets[ticket]['qty']}x`}{' '}
-              <Currency value={tickets[ticket]['price']} />
+              {`${Cart.tickets[ticket]['qty']}x`}{' '}
+              <Currency value={Cart.tickets[ticket]['price']} />
             </span>
             <span>
               <Currency
                 value={
-                  tickets[ticket]['qty'] * tickets[ticket]['price']
+                  Cart.tickets[ticket]['qty'] *
+                  Cart.tickets[ticket]['price']
                 }
               />
             </span>
@@ -40,7 +41,7 @@ const Cart = ({ tickets }) => {
         ))}
       </ul>
       <p className="Cart__Total">
-        <Currency value={getTotal(tickets)} />
+        <Currency value={getTotal(Cart.tickets)} />
       </p>
     </div>
   );

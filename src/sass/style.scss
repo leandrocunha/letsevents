@@ -70,15 +70,6 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 15px 0 0 0;
-
-  &__SelectWrapper {
-    &__Select {
-      padding: 5px;
-      min-width: 50px;
-      border-radius: 4px;
-      background-color: #fff;
-    }
-  }
 }
 
 .Cart {
@@ -109,3 +100,14 @@ body {
     padding: 10px 0 0 0;
   }
 }
+
+.Checkout {
+  border-top: rgba($black, 0.1) 1px solid;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+
+@import 'select';
+@import 'button';
