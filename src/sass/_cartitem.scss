@@ -1,0 +1,18 @@
+.CartItem {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  &__Price {
+    flex: 1;
+  }
+
+  &__Batch {
+    width: 100px;
+  }
+
+  &__Total {
+    text-align: right;
+    width: 150px;
+  }
+}

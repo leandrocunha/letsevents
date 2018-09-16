@@ -8,10 +8,11 @@
     list-style: none;
     padding: 0;
 
+    &__Name {
+      margin: 0;
+    }
+
     &__Item {
-      align-items: center;
-      display: flex;
-      justify-content: space-between;
       padding: 6px 0;
     }
   }
