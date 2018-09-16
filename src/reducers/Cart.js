@@ -19,7 +19,13 @@ const Cart = (state = initialState, { type, payload }) => {
       };
 
     case 'CART/CLEAR':
-      return newState || state;
+      if (Object.keys(state.tickets).length) {
+        if (state.tickets[payload.ticket]) {
+          delete state.tickets[payload.ticket][payload.batch];
+        }
+      }
+
+      return { ...state };
 
     default:
       return state;
