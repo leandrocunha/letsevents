@@ -1,0 +1,28 @@
+.Cart {
+  &__Title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  &__ItemsList {
+    list-style: none;
+    padding: 0;
+
+    &__Item {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+    }
+  }
+
+  &__Total {
+    border-top: rgba($black, 0.1) 1px solid;
+    display: flex;
+    font-size: 16px;
+    font-weight: 700;
+    justify-content: flex-end;
+    margin: 10px 0 0 0;
+    padding: 10px 0 0 0;
+  }
+}

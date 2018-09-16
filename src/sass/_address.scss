@@ -1,0 +1,9 @@
+.Address {
+  margin: 0 0 30px 0;
+
+  &__Establishment,
+  &__Street,
+  &__CityCountry {
+    margin: 0;
+  }
+}
