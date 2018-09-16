@@ -9,7 +9,7 @@ class Offer extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
-  onChange(qty, price) {
+  onChange(qty, price, fees) {
     const { dispatch } = this.props;
 
     dispatch({
@@ -18,6 +18,7 @@ class Offer extends Component {
         [String(this.props.name).toLowerCase()]: {
           qty: Number(qty),
           price,
+          fees,
         },
       },
     });

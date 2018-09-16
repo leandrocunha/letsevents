@@ -9,7 +9,11 @@ const Batch = props => (
         className="Select"
         disabled={!props.available}
         onChange={({ target }) =>
-          props.onChange(target.value, props.price)
+          props.onChange(
+            target.value,
+            props.price,
+            props.payment_methods
+          )
         }
       >
         <option> - </option>
