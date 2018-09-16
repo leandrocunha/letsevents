@@ -1,29 +1,35 @@
 import React from 'react';
 import Currency from './Currency';
 
-const Batch = props => (
+const Batch = ({
+  price,
+  available,
+  payment_methods,
+  purchaseable_quantities,
+  number,
+}) => (
   <div className="Batch Batch--available">
-    <p>{props.price ? <Currency value={props.price} /> : 'Grátis'}</p>
+    <p>{price ? <Currency value={price} /> : 'Grátis'}</p>
     <div className="Batch__SelectWrapper">
-      {props.available ? (
+      {available ? (
         <select
           className="Select"
-          defaultValue={!props.available}
-          disabled={!props.available}
+          defaultValue={!available}
+          disabled={!available}
           onChange={({ target }) =>
-            props.onChange(
+            onChange(
               Number(target.value),
-              props.price,
-              props.payment_methods,
-              props.purchaseable_quantities[
-                props.purchaseable_quantities.length - 1
+              price,
+              payment_methods,
+              purchaseable_quantities[
+                purchaseable_quantities.length - 1
               ],
-              props.number
+              number
             )
           }
         >
           <option> - </option>
-          {props.purchaseable_quantities.map(qty => (
+          {purchaseable_quantities.map(qty => (
             <option key={qty} value={qty}>
               {qty}
             </option>

@@ -29,7 +29,7 @@ class Offer extends Component {
    * }
    */
   onChange(qty, price, fees, limit, batch) {
-    const { dispatch } = this.props;
+    const { dispatch, name } = this.props;
 
     if (qty === limit) {
       this.setState({ available: batch + 1 });
@@ -37,16 +37,16 @@ class Offer extends Component {
       this.setState({ available: batch });
       dispatch({
         type: 'CART/CLEAR',
-        payload: { ticket: this.props.name, batch: batch + 1 },
+        payload: { ticket: name, batch: batch + 1 },
       });
     }
 
     dispatch({
       type: 'CART',
       payload: {
-        ticket: this.props.name,
-        batch: batch,
+        ticket: name,
         qty: Number(qty),
+        batch,
         price,
         fees,
       },
@@ -54,14 +54,17 @@ class Offer extends Component {
   }
 
   render() {
+    const { name, batches, description } = this.props;
+    const { available } = this.state;
+
     return (
       <div className="Offer">
-        <h3 className="Offer__Name">{this.props.name}</h3>
-        <p className="Offer__Description">{this.props.description}</p>
-        {this.props.batches.map(batch => (
+        <h3 className="Offer__Name">{name}</h3>
+        <p className="Offer__Description">{description}</p>
+        {batches.map(batch => (
           <Batch
             key={batch.id}
-            available={batch.number <= this.state.available}
+            available={batch.number <= available}
             onChange={this.onChange}
             {...batch}
           />

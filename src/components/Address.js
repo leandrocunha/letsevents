@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Address = props => (
+const Address = ({ name, street, city, country }) => (
   <div className="Address">
-    <h2 className="Address__Establishment">{props.name}</h2>
-    <p className="Address__Street">{`${props.street} - ${
-      props.city
-    } - ${props.country}`}</p>
+    <h2 className="Address__Establishment">{name}</h2>
+    <p className="Address__Street">{`${street} - ${city} - ${country}`}</p>
   </div>
 );
 

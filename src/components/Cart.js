@@ -44,9 +44,9 @@ const getFee = (paymentMethod, fees) => {
     return 0;
   }
 
-  const fee = fees.filter(fee => fee.payment_type === paymentMethod);
+  const fee = fees.filter(f => f.payment_type === paymentMethod);
 
-  return fee[0]['due_service_fee'];
+  return fee[0].due_service_fee;
 };
 
 const Cart = ({ Cart, Checkout }) => {
@@ -66,7 +66,7 @@ const Cart = ({ Cart, Checkout }) => {
                 batch={item}
                 fee={getFee(
                   Checkout.payment_method,
-                  Cart.tickets[ticket][item]['fees']
+                  Cart.tickets[ticket][item].fees
                 )}
                 paymentMethod={Checkout.payment_method}
               />
