@@ -52,7 +52,7 @@ const Cart = ({ Cart, Checkout }) => {
     <div className="Cart">
       <p className="Cart__Title">Carrinho de compras:</p>
       <ul className="Cart__ItemsList">
-        {Object.keys(Cart.tickets).map(ticket => (
+        {/* {Object.keys(Cart.tickets).map(ticket => (
           <CartItem
             key={ticket}
             fee={getFee(
@@ -66,7 +66,7 @@ const Cart = ({ Cart, Checkout }) => {
             cart={{ ...Cart }}
             checkout={{ ...Checkout }}
           />
-        ))}
+        ))} */}
       </ul>
       <p className="Cart__Total">
         <Currency

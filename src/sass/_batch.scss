@@ -2,4 +2,13 @@
   display: flex;
   justify-content: space-between;
   margin: 15px 0 0 0;
+
+  &__SelectWrapper {
+    &__AvailableAt {
+      color: rgba($black, 0.5);
+      font-size: 11px;
+      font-style: italic;
+      text-align: right;
+    }
+  }
 }
