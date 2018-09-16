@@ -25,7 +25,7 @@ class Checkout extends Component {
           className="Select"
           onChange={({ target }) => this.paymentMethod(target.value)}
         >
-          <option>Forma de pagamento</option>
+          <option value="">Forma de pagamento</option>
           <option value="BANK_SLIP">Boleto bancário</option>
           <option value="CREDIT">Cartão de crédito</option>
         </select>

@@ -22,21 +22,33 @@ class Offer extends Component {
    * @param {number} qty - The quantity of items will be purchased
    * @param {number} price - The value of each item
    * @param {Array} fees - An array of objects with price and fee for each payment method.
+   * @param {number} limit - The maximum value to available tickets
+   * @param {number} batch - The number of batch related to order
    * @example onChange(1, 10, [{due_amount: 12, due_service_fee: 2, payment_type: 'BANK-SLIP'}]) {
    *  //do something
    * }
    */
-  onChange(qty, price, fees) {
+  onChange(qty, price, fees, limit, batch) {
     const { dispatch } = this.props;
+
+    if (qty === limit) {
+      this.setState({ available: batch + 1 });
+    } else {
+      this.setState({ available: batch });
+      dispatch({
+        type: 'CART/CLEAR',
+        payload: { ticket: this.props.name, batch: batch + 1 },
+      });
+    }
 
     dispatch({
       type: 'CART',
       payload: {
-        [String(this.props.name).toLowerCase()]: {
-          qty: Number(qty),
-          price,
-          fees,
-        },
+        ticket: this.props.name,
+        batch: batch,
+        qty: Number(qty),
+        price,
+        fees,
       },
     });
   }
@@ -49,7 +61,7 @@ class Offer extends Component {
         {this.props.batches.map(batch => (
           <Batch
             key={batch.id}
-            available={batch.number === this.state.available}
+            available={batch.number <= this.state.available}
             onChange={this.onChange}
             {...batch}
           />
