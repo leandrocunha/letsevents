@@ -3,7 +3,6 @@ const initialState = { tickets: {} };
 const Cart = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'CART':
-      // return { ...state, tickets: { ...state.tickets, ...payload } };
       return {
         ...state,
         tickets: {
@@ -20,16 +19,6 @@ const Cart = (state = initialState, { type, payload }) => {
       };
 
     case 'CART/CLEAR':
-      let newState = null;
-
-      // if (Object.keys(state.tickets).length) {
-      //   const newState = { ...state };
-      //   console.log(
-      //     delete newState.tickets[payload.ticket][payload.batch],
-      //     payload.ticket,
-      //     payload.batch
-      //   );
-      // }
       return newState || state;
 
     default:

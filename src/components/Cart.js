@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import CartItem from './CartItem';
 import Currency from './Currency';
@@ -86,28 +86,3 @@ const Cart = ({ Cart, Checkout }) => {
 const mapStateToProps = state => state;
 
 export default connect(mapStateToProps)(Cart);
-
-{
-  /* <CartItem
-            key={ticket}
-            fee={getFee(
-              Checkout.payment_method,
-              Cart.tickets[ticket]['fees']
-            )}
-            name={ticket}
-            paymentMethod={Checkout.payment_method}
-            price={Cart.tickets[ticket]['price']}
-            quantity={Cart.tickets[ticket]['qty']}
-            cart={{ ...Cart }}
-            checkout={{ ...Checkout }}
-          /> */
-}
-
-{
-  /* <span>
-                {Cart.tickets[ticket][item]['price']}
-                <br />
-                {Cart.tickets[ticket][item]['qty']}
-                {console.log(Cart.tickets[ticket][item])}
-              </span> */
-}

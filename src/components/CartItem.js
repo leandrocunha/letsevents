@@ -15,15 +15,6 @@ const CartItem = ({ paymentMethod, fee, price, qty, batch }) => (
     <p className="CartItem__Total">
       <Currency value={qty * (price + fee)} />
     </p>
-    {/* <span>
-      <strong>{`${name} (x${quantity})`}</strong>
-      <br />
-      <Currency value={price} />
-      {checkout.payment_method && <Fee due_service_fee={fee} />}
-    </span>
-    <span>
-      <Currency value={quantity * (price + fee)} />
-    </span> */}
   </div>
 );
 

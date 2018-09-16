@@ -28,7 +28,6 @@ class Offer extends Component {
    */
   onChange(qty, price, fees, limit, batch) {
     const { dispatch } = this.props;
-    console.log(limit);
 
     if (qty === limit) {
       this.setState({ available: batch + 1 });
@@ -50,17 +49,6 @@ class Offer extends Component {
         fees,
       },
     });
-
-    // dispatch({
-    //   type: 'CART',
-    //   payload: {
-    //     [String(this.props.name).toLowerCase()]: {
-    //       qty: Number(qty),
-    //       price,
-    //       fees,
-    //     },
-    //   },
-    // });
   }
 
   render() {
