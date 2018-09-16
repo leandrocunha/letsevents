@@ -5,10 +5,27 @@ import Batch from './Batch';
 class Offer extends Component {
   constructor(props) {
     super(props);
+
+    /**
+     * Define initial local state
+     * @param {number} available - The number of the batch should be available at init
+     * @example { available: 1 }
+     */
     this.state = { available: 1 };
+
+    /** Bind the onChange() function to set the quantity of items will be purchased. */
     this.onChange = this.onChange.bind(this);
   }
 
+  /**
+   * onChange() function dispatch a action to save the quantity of items will be purchased and save it at app state.
+   * @param {number} qty - The quantity of items will be purchased
+   * @param {number} price - The value of each item
+   * @param {Array} fees - An array of objects with price and fee for each payment method.
+   * @example onChange(1, 10, [{due_amount: 12, due_service_fee: 2, payment_type: 'BANK-SLIP'}]) {
+   *  //do something
+   * }
+   */
   onChange(qty, price, fees) {
     const { dispatch } = this.props;
 

@@ -8,6 +8,7 @@ import App from './components/App';
 import Cart from './reducers/Cart';
 import Checkout from './reducers/Checkout';
 
+/** Define the API URL */
 const client = new ApolloClient({
   uri: 'http://dev.lets.events/graphql',
 });

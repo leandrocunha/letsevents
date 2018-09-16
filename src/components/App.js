@@ -5,6 +5,7 @@ import Cart from './Cart';
 import Checkout from './Checkout';
 import Events from './Events';
 
+/** Define GraphQl query to fetch events */
 const getEventsQuery = gql`
   {
     event_offer(id: "lets-react-the-grand-tournament") {
