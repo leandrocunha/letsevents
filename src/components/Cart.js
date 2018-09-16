@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
+import Currency from './Currency';
 
 const getTotal = cart => {
   const total = [];
@@ -12,26 +13,36 @@ const getTotal = cart => {
     ? total.reduce((a, b) => a + b)
     : 0;
 
-  return formatedTotal.toLocaleString('pt-BR', {
-    minimumFractionDigits: 2,
-    style: 'currency',
-    currency: 'BRL',
-  });
+  return formatedTotal;
 };
 
 const Cart = ({ tickets }) => {
   return (
-    <Fragment>
-      <p>Carrinho de compras:</p>
-      {Object.keys(tickets).map((ticket, index) => (
-        <li key={index}>
-          {`${ticket} - ${tickets[ticket]['qty']}x R$ ${
-            tickets[ticket]['price']
-          }`}
-        </li>
-      ))}
-      <p>{getTotal(tickets)}</p>
-    </Fragment>
+    <div className="Cart">
+      <p className="Cart__Title">Carrinho de compras:</p>
+      <ul className="Cart__ItemsList">
+        {Object.keys(tickets).map((ticket, index) => (
+          <li className="Cart__ItemsList__Item" key={index}>
+            <span>
+              <strong>{ticket}</strong>
+              <br />
+              {`${tickets[ticket]['qty']}x`}{' '}
+              <Currency value={tickets[ticket]['price']} />
+            </span>
+            <span>
+              <Currency
+                value={
+                  tickets[ticket]['qty'] * tickets[ticket]['price']
+                }
+              />
+            </span>
+          </li>
+        ))}
+      </ul>
+      <p className="Cart__Total">
+        <Currency value={getTotal(tickets)} />
+      </p>
+    </div>
   );
 };
 
