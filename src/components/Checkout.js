@@ -29,7 +29,7 @@ class Checkout extends Component {
           <option value="BANK_SLIP">Boleto bancário</option>
           <option value="CREDIT">Cartão de crédito</option>
         </select>
-        <button className="Button Button--primary">
+        <button className="Button Button--primary" type="button">
           Finalizar compra
         </button>
       </div>

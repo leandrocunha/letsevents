@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import CartItem from './CartItem';
 import Currency from './Currency';
@@ -44,9 +45,9 @@ const getFee = (paymentMethod, fees) => {
     return 0;
   }
 
-  const fee = fees.filter(fee => fee.payment_type === paymentMethod);
+  const fee = fees.filter(f => f.payment_type === paymentMethod);
 
-  return fee[0]['due_service_fee'];
+  return fee[0].due_service_fee;
 };
 
 const Cart = ({ Cart, Checkout }) => {
@@ -63,10 +64,10 @@ const Cart = ({ Cart, Checkout }) => {
               <CartItem
                 key={item}
                 {...Cart.tickets[ticket][item]}
-                batch={item}
+                batch={Number(item)}
                 fee={getFee(
                   Checkout.payment_method,
-                  Cart.tickets[ticket][item]['fees']
+                  Cart.tickets[ticket][item].fees
                 )}
                 paymentMethod={Checkout.payment_method}
               />
@@ -84,5 +85,10 @@ const Cart = ({ Cart, Checkout }) => {
 };
 
 const mapStateToProps = state => state;
+
+Cart.propTypes = {
+  Cart: PropTypes.instanceOf(Object).isRequired,
+  Checkout: PropTypes.instanceOf(Object).isRequired,
+};
 
 export default connect(mapStateToProps)(Cart);
