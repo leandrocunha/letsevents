@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Batch from './Batch';
 
@@ -73,5 +74,11 @@ class Offer extends Component {
     );
   }
 }
+
+Offer.propTypes = {
+  name: PropTypes.string.isRequired,
+  batches: PropTypes.instanceOf(Array).isRequired,
+  description: PropTypes.string.isRequired,
+};
 
 export default connect()(Offer);

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 const format = value =>
   value.toLocaleString('pt-BR', {
@@ -7,8 +8,10 @@ const format = value =>
     currency: 'BRL',
   });
 
-const Currency = ({ value }) => {
-  return <Fragment>{format(value)}</Fragment>;
+const Currency = ({ value }) => <Fragment>{format(value)}</Fragment>;
+
+Currency.propTypes = {
+  value: PropTypes.number.isRequired,
 };
 
 export default Currency;

@@ -1,9 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Currency from './Currency';
 
 const Batch = ({
   price,
   available,
+  onChange,
   payment_methods,
   purchaseable_quantities,
   number,
@@ -43,5 +45,14 @@ const Batch = ({
     </div>
   </div>
 );
+
+Batch.propTypes = {
+  available: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+  price: PropTypes.number.isRequired,
+  payment_methods: PropTypes.instanceOf(Array).isRequired,
+  purchaseable_quantities: PropTypes.instanceOf(Array).isRequired,
+  number: PropTypes.number.isRequired,
+};
 
 export default Batch;

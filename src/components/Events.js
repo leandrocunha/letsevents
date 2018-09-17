@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Offer from './Offer';
 import Address from './Address';
 
@@ -14,5 +15,11 @@ const Events = ({ address, name, ticket_offers }) => (
     ))}
   </div>
 );
+
+Events.propTypes = {
+  address: PropTypes.instanceOf(Object).isRequired,
+  name: PropTypes.string.isRequired,
+  ticket_offers: PropTypes.instanceOf(Object).isRequired,
+};
 
 export default Events;
